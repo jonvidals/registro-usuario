@@ -18,6 +18,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+    public static Object getId;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

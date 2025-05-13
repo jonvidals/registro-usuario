@@ -10,8 +10,11 @@ import com.ecomarket.registro_usuario.repository.UsuarioRepository;
 public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
-    public Usuario registrarUsuario(Usuario usuario) {
-        return usuarioRepository.registrarse(usuario);
+    public Usuario crear_usuario(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
-
+    public Usuario findById(int id) {
+            return usuarioRepository.findById(id);
+       
+    }
 }

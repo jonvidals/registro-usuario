@@ -1,19 +1,17 @@
 package com.ecomarket.registro_usuario.repository;
 
-import java.util.ArrayList;
-import java.util.List;
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ecomarket.registro_usuario.model.Usuario;
 
 @Repository
-public class UsuarioRepository {
-    private List<Usuario> usuarios = new ArrayList<>();
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+    
+    @SuppressWarnings("unchecked")
+    Usuario save(Usuario usuario);
 
-    public Usuario registrarse(Usuario usuario) {
-        usuarios.add(usuario);
-        return usuario;
-    }
-
+    Usuario findById(int id);
 }
