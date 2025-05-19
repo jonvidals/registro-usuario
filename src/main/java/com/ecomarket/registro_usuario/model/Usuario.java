@@ -41,5 +41,6 @@ public class Usuario {
 
     @Column(length = 2, nullable = false)
     private int rol; // 0= administrador, 1 = cliente, 2 = empleadoVenta, 3 = encargadoTienda, 4 = logistica
-
+    @Column(nullable = false)
+    private boolean activo;
 }
