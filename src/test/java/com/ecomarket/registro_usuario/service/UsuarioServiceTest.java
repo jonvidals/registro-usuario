@@ -1,5 +1,6 @@
 package com.ecomarket.registro_usuario.service;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -24,16 +25,18 @@ public class UsuarioServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
+
     @Test
     void testRegistrarUsuario() {
         Usuario usuario = new Usuario(null, "2222", "jona", "vidal", "jon@cftla.cl", "xd123", 0, true);
         Usuario usuarioGuardado = new Usuario(1L, "2222", "jona", "vidal", "jon@cftla.cl", "xd123", 0, true);
-        when(usuarioRepository.save(usuario)).thenReturn(usuarioGuardado);
-        
-        Usuario resultado = usuarioService.crear_usuario(usuario);
-        assertThat(resultado.getId()).isEqualTo(1L);
-        verify(usuarioRepository).save(usuario); 
     
+        when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuarioGuardado);
+    
+        Usuario resultado = usuarioService.crear_usuario(usuario);
+    
+        assertThat(resultado.getId()).isEqualTo(1L);
+        verify(usuarioRepository).save(usuario);
     }
 
 
