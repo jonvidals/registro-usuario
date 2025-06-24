@@ -13,7 +13,7 @@ public class UsuarioService {
     public Usuario crear_usuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
-    public Usuario findById(int id) {
+    public Usuario findById(long id) {
             return usuarioRepository.findById(id);
        
     }
