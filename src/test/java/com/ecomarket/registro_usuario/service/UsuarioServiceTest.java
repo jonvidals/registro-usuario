@@ -33,6 +33,14 @@ public class UsuarioServiceTest {
         when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuarioGuardado);
         Usuario resultado = usuarioService.crear_usuario(usuario);
         assertThat(resultado.getId()).isEqualTo(1L);
+        assertThat(resultado.getRut()).isEqualTo("2222");
+        assertThat(resultado.getNombre()).isEqualTo("jona");
+        assertThat(resultado.getApellido()).isEqualTo("vidal");
+        assertThat(resultado.getEmail()).isEqualTo("jon@cftla.cl");
+        assertThat(resultado.getPassword()).isEqualTo("xd123");
+        assertThat(resultado.getRol()).isEqualTo(0);
+        assertThat(resultado.isActivo()).isTrue();
+        assertThat(resultado).isEqualTo(usuarioGuardado);
         verify(usuarioRepository).save(usuario);
     }
     @Test
